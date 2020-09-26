@@ -1,5 +1,10 @@
+
+import * as Apollo from "react-apollo";
 import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
+// import * as Apollo from '@apollo/client';
+
+// import * as Apollo from "react-apollo";
+import * as ReactApolloHooks from "react-apollo-hooks";
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 /** All built-in and custom scalars, mapped to their actual values */

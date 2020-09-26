@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import './style.css'
 import { LaunchListQuery } from '../../generated/graphql'
 
 interface Props {
