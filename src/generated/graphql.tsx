@@ -733,6 +733,17 @@ export enum CacheControlScope {
 }
 
 
+export type LaunchListQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type LaunchListQuery = (
+  { __typename?: 'Query' }
+  & { launches?: Maybe<Array<Maybe<(
+    { __typename?: 'Launch' }
+    & Pick<Launch, 'flight_number' | 'mission_name' | 'launch_year'>
+  )>>> }
+);
+
 export type LaunchProfileQueryVariables = Exact<{
   id: Scalars['String'];
 }>;
@@ -757,6 +768,40 @@ export type LaunchProfileQuery = (
 );
 
 
+export const LaunchListDocument = gql`
+    query LaunchList {
+  launches {
+    flight_number
+    mission_name
+    launch_year
+  }
+}
+    `;
+
+/**
+ * __useLaunchListQuery__
+ *
+ * To run a query within a React component, call `useLaunchListQuery` and pass it any options that fit your needs.
+ * When your component renders, `useLaunchListQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useLaunchListQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useLaunchListQuery(baseOptions?: Apollo.QueryHookOptions<LaunchListQuery, LaunchListQueryVariables>) {
+        return Apollo.useQuery<LaunchListQuery, LaunchListQueryVariables>(LaunchListDocument, baseOptions);
+      }
+export function useLaunchListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<LaunchListQuery, LaunchListQueryVariables>) {
+          return Apollo.useLazyQuery<LaunchListQuery, LaunchListQueryVariables>(LaunchListDocument, baseOptions);
+        }
+export type LaunchListQueryHookResult = ReturnType<typeof useLaunchListQuery>;
+export type LaunchListLazyQueryHookResult = ReturnType<typeof useLaunchListLazyQuery>;
+export type LaunchListQueryResult = Apollo.QueryResult<LaunchListQuery, LaunchListQueryVariables>;
 export const LaunchProfileDocument = gql`
     query LaunchProfile($id: String!) {
   launch(id: $id) {
