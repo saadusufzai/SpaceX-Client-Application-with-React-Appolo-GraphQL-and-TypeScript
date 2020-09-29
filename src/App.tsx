@@ -13,8 +13,8 @@ function App() {
 
   return (
     <div className="App">
-      <LaunchList/>
-      <LaunchProfile/>
+      <LaunchList handelIdChange = {handelIDChange}/>
+      <LaunchProfile id={id}/>
      
     </div>
   );
