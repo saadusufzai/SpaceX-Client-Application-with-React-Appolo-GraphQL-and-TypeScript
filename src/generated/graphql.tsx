@@ -1,7 +1,7 @@
 
-import * as Apollo from "react-apollo";
+// import * as Apollo from "react-apollo";
 import { gql } from '@apollo/client';
-// import * as Apollo from '@apollo/client';
+import * as Apollo from '@apollo/client';
 
 // import * as Apollo from "react-apollo";
 import * as ReactApolloHooks from "react-apollo-hooks";

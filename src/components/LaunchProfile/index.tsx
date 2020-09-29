@@ -1,25 +1,23 @@
-import React from 'react'
+import * as React from 'react';
 import { useLaunchProfileQuery } from '../../generated/graphql';
 import LaunchProfile from './LaunchProfile';
 
+const LaunchProfileContainer = () => {
+  const { data, error, loading } = useLaunchProfileQuery({ variables: { id: '42' } });
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
- const LaunchProfileContainer = ()=>{
+  if (error) {
+    return <div>ERROR</div>;
+  }
 
-    const { data, error, loading } = useLaunchProfileQuery();
-    
-    if(loading){
-        return
-        <div>Loading...</div>
-    }
-    if(error){
-       return <div>Error</div>
-    }
-    if(!data){
-        return <div>Select a flight from the panel</div>
-    }
+  if (!data) {
+    return <div>Select a flight from the panel</div>;
+  }
 
-    return <LaunchProfile data = {data} />
-}
+  return <LaunchProfile data={data} />;
+};
 
-export default LaunchProfileContainer
+export default LaunchProfileContainer;

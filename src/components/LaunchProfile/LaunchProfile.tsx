@@ -1,16 +1,16 @@
-import React from "react";
-import { LaunchProfileQuery } from "../../generated/graphql";
-import "./styles.css";
+import * as React from 'react';
+import { LaunchProfileQuery } from '../../generated/graphql';
+import './style.css';
 
 interface Props {
   data: LaunchProfileQuery;
 }
 
-const className = "LaunchProfile";
+const className = 'LaunchProfile';
 
 const LaunchProfile: React.FC<Props> = ({ data }) => {
   if (!data.launch) {
-    return <div> No Launch Available</div>;
+    return <div>No launch available</div>;
   }
 
   return (
@@ -28,12 +28,11 @@ const LaunchProfile: React.FC<Props> = ({ data }) => {
         {data.launch.rocket &&
           ` (${data.launch.rocket.rocket_name} | ${data.launch.rocket.rocket_type})`}
       </h1>
+      <p className={`${className}__description`}>{data.launch.details}</p>
       {!!data.launch.links && !!data.launch.links.flickr_images && (
         <div className={`${className}__image-list`}>
-          {data.launch.links.flickr_images.map((image) =>
-            image ? (
-              <img src={image} className={`${className}__image`} key={image} />
-            ) : null
+          {data.launch.links.flickr_images.map(image =>
+            image ? <img src={image} className={`${className}__image`} key={image} /> : null,
           )}
         </div>
       )}
