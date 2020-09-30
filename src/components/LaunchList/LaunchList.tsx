@@ -24,7 +24,8 @@ const LaunchList: React.FC<Props> = ({data,handelIdChange}) => {
                        <li key={i} className={`${className}__item`}
                         onClick={()=>handelIdChange(launch.flight_number)}
                         >
-                           {launch.mission_name}({launch.launch_year})
+                           {launch.mission_name} ({launch.launch_year})
+                           
                        </li>
                    )
                    ) 
