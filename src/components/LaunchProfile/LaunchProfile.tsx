@@ -10,7 +10,7 @@ interface Props  {
 
 const className = 'LaunchProfile';
 
-const LaunchProfile: React.FC<Props> = ({ data }) => {
+const LaunchProfile: React.FC<Props> = ({ data   }) => {
   if (!data.launch) {
     return <div>No launch available</div>;
   }
