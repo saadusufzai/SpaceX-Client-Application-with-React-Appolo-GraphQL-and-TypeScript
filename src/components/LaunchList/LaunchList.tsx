@@ -3,7 +3,7 @@ import './style.css'
 import { LaunchListQuery } from '../../generated/graphql'
 
 export interface OwnProps {
-    handelIdChange: (newId: number|undefined|null)=> void
+    handelIdChange: (newId: number|undefined|null)=> void 
 }
 
 interface Props extends OwnProps {

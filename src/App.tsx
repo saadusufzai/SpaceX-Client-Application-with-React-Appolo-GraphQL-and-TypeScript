@@ -1,9 +1,8 @@
 import React, { useCallback, useState } from "react";
-import LaunchList from "./components/LaunchList";
-import LaunchProfile from "./components/LaunchProfile";
-
+import { BrowserRouter , Routes, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header/Header";
+import Launches from "./components/Launches/Launches";
 
 function App() {
   const [id, setID] = useState(55);
@@ -12,13 +11,15 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Header/>
-      <div className="App">
-        <LaunchList handelIdChange={handelIDChange} />
-        <LaunchProfile id={id} />
-      </div>
-    </>
+    
+      <BrowserRouter>
+        <Header />
+      
+        <Routes>
+          <Route path="/" element={<Launches id={id} handelIdChange={handelIDChange} />}/>
+        </Routes>
+      </BrowserRouter>
+   
   );
 }
 
