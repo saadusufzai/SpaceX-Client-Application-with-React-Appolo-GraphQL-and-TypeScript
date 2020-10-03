@@ -1,12 +1,16 @@
-import gql from 'graphql-tag';
+import  gql from 'graphql-tag'
 
-export const QUERY_LAUNCH_LIST = gql`
-  query LaunchList {
-    launches {
-      flight_number
-      mission_name
-      launch_year
+export const QUERY_ROCKET_LIST  = gql`
+  query {
+    rockets {
+      name
+      id
+      height {
+        meters
+      }
+      description
+      cost_per_launch
+      wikipedia
     }
   }
-`;
-
+`
