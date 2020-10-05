@@ -3,6 +3,9 @@
   Information about their launches, company, ships and much more
   The data is coming from SpaceX offical API and is a property of SpaceX 
   I am just using this data for educational purposes (to build this app and try Apollo Graphql )
+## Types generation
+Used graphql-codegen to auto generate types for the gql queries
+
 ## React Router V6
   npm i history react-router-native@next
 
