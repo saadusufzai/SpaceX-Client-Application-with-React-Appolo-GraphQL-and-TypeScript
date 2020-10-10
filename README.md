@@ -12,7 +12,7 @@ install additional dependencies. Our app will use Apollo to execute GraphQL API 
 Used graphql-codegen to auto generate types for the gql queries
 
 ## React Router V6
-  npm i history react-router-native@next
+  npm i history react-router-dom@next
 
 ## Apollo GraphQL 
  yarn add @apollo/client 
